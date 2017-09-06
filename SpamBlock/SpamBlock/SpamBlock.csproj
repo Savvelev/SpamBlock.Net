@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>Rohit</Authors>
+    <Description>Block spam ips from your website.</Description>
+    <PackageLicenseUrl>https://github.com/rohitlodha/SpamBlock.Net/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/rohitlodha/SpamBlock.Net.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/rohitlodha/SpamBlock.Net</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.0" />
+  </ItemGroup>
+
+</Project>
