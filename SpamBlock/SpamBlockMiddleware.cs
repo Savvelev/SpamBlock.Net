@@ -1,4 +1,4 @@
-﻿
+﻿#if NETSTANDARD2_0
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
@@ -33,3 +33,4 @@ namespace SpamBlock
         }
     }
 }
+#endif
