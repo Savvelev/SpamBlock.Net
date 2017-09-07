@@ -1,31 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Authors>Rohit</Authors>
-    <Description>Block spam ips from your website.</Description>
+    <Description>Block Spammer IPs on your website using honey pot project api. See https://github.com/rohitlodha/SpamBlock.Net for details.</Description>
     <PackageLicenseUrl>https://github.com/rohitlodha/SpamBlock.Net/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/rohitlodha/SpamBlock.Net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/rohitlodha/SpamBlock.Net</PackageProjectUrl>
     <Version>2.1.0</Version>
-    <PackageTags>Block SPAM IPs  using honey pot project api.</PackageTags>
+    <PackageTags>Block SPAM http:BL IIS</PackageTags>
     <AssemblyVersion>2.1.0.0</AssemblyVersion>
     <FileVersion>2.1.0.0</FileVersion>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>SpamBlock.snk</AssemblyOriginatorKeyFile>
+    <Copyright>Rohit 2017</Copyright>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.0|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\" />
+  <ItemGroup Condition="'$(TargetFramework)'=='net461'">
+    <Reference Include="System.Web" />
   </ItemGroup>
-
 </Project>

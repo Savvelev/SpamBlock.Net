@@ -1,4 +1,5 @@
-﻿using SpamBlock;
+﻿#if NET461
+using SpamBlock;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,7 +12,7 @@ using System.Web.Configuration;
 using Microsoft.Extensions.Logging;
 using SpamBlock.HttpBL;
 
-namespace IISModule
+namespace SpamBlock
 {
     public class SpamBlockModule : IHttpModule
     {
@@ -79,3 +80,4 @@ namespace IISModule
         }
     }
 }
+#endif
