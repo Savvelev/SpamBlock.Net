@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpamBlock", "SpamBlock\SpamBlock.csproj", "{352D045F-ED65-49BA-AA52-E49C33D3652D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{886C2147-4250-4AC9-B7E0-E91FFB8BA3E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{886C2147-4250-4AC9-B7E0-E91FFB8BA3E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISModule", "IISModule\IISModule.csproj", "{091595E0-FEA8-446B-A62E-95726DC4AD5C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{886C2147-4250-4AC9-B7E0-E91FFB8BA3E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{886C2147-4250-4AC9-B7E0-E91FFB8BA3E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{886C2147-4250-4AC9-B7E0-E91FFB8BA3E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{091595E0-FEA8-446B-A62E-95726DC4AD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{091595E0-FEA8-446B-A62E-95726DC4AD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{091595E0-FEA8-446B-A62E-95726DC4AD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{091595E0-FEA8-446B-A62E-95726DC4AD5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

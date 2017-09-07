@@ -1,4 +1,4 @@
-﻿namespace SpamBlock
+﻿namespace SpamBlock.HttpBL
 {
     public enum SearchEngineType
     {

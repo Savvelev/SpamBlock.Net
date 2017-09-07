@@ -1,6 +1,6 @@
 using System.Net;
 
-namespace SpamBlock
+namespace SpamBlock.HttpBL
 {
     public sealed class InternalIPResult : CheckResult
     {

@@ -27,7 +27,7 @@ namespace SpamBlock
 
     public static class SpamBlockMiddlewareExtensions
     {
-        public static IApplicationBuilder UseMyMiddleware(this IApplicationBuilder builder)
+        public static IApplicationBuilder UseSpamBlockMiddleware(this IApplicationBuilder builder)
         {
             return builder.UseMiddleware<SpamBlockMiddleware>();
         }

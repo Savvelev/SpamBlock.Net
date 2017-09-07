@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 
-namespace SpamBlock
+namespace System.Net
 {
     // ReSharper disable once InconsistentNaming
     public static class IPAddressExtensions

@@ -1,6 +1,6 @@
 using System;
 
-namespace SpamBlock
+namespace SpamBlock.HttpBL
 {
     [Flags]
     public enum SpammerType
