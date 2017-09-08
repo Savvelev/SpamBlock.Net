@@ -18,6 +18,8 @@ Download the latest [SpamBlock nuget package](https://www.nuget.org/packages/Spa
 <configuration>
   <appSettings>
     <add key="AccessKey" value="YOUR_ACCESS_KEY" />
+	<add key="ThresholdThreatScore" value="50" /> <!-- Allows values with score less than threshold. Optional. Valid values 0 to 255. Default value is 50. -->
+	<add key="MaxAgeInDays" value="10" />   <!-- Allows values with age less than max age. Optional. Valid values 0 to 255. Default value is 10. -->
   </appSettings>
 </configuration>
 ```

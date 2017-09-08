@@ -17,11 +17,17 @@ namespace SpamBlock
     public class SpamBlockModule : IHttpModule
     {
         private readonly SpamBlocker _checker = new SpamBlocker();
+        private readonly byte _thresholdThreatScore;
+        private readonly byte _maxAgeInDays;
 
         public SpamBlockModule()
         {
             var accessKey = WebConfigurationManager.AppSettings["AccessKey"];
             _checker.AddChecker(new HttpBLClient(accessKey));
+            if (!byte.TryParse(WebConfigurationManager.AppSettings["ThresholdThreatScore"], out _thresholdThreatScore))
+                _thresholdThreatScore = 50;
+            if (!byte.TryParse(WebConfigurationManager.AppSettings["MaxAgeInDays"], out _maxAgeInDays))
+                _maxAgeInDays = 10;
         }
 
         public void Dispose()
@@ -31,7 +37,7 @@ namespace SpamBlock
         public void Init(HttpApplication context)
         {
             var eh = new EventHandlerTaskAsyncHelper(Handler);
-            context.AddOnBeginRequestAsync(eh.BeginEventHandler,eh.EndEventHandler);
+            context.AddOnBeginRequestAsync(eh.BeginEventHandler, eh.EndEventHandler);
         }
 
         private async Task Handler(object sender, EventArgs eventArgs)
@@ -41,7 +47,7 @@ namespace SpamBlock
                 var application = (HttpApplication)sender;
                 var ctx = application.Context;
                 var ip = ctx.Request.UserHostAddress;
-                var allowed = await _checker.IsAllowed(ip, 100, 100);
+                var allowed = await _checker.IsAllowed(ip, _thresholdThreatScore, _maxAgeInDays);
                 if (!allowed)
                 {
                     SendNotAllowedResponse(ip, null);
