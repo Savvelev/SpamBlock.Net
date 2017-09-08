@@ -30,39 +30,29 @@ namespace SpamBlock
 
         public void Init(HttpApplication context)
         {
-            context.AddOnBeginRequestAsync(BeginRequest, EndRequest);
+            context.BeginRequest += Context_BeginRequest;
         }
 
-        private void EndRequest(IAsyncResult ar)
+        private void Context_BeginRequest(object sender, EventArgs e)
         {
             try
             {
-                var t = (Task)ar;
-                t.Wait();
+                var application = (HttpApplication)sender;
+                var ctx = application.Context;
+                var ip = ctx.Request.UserHostAddress;
+                var allowed = _checker.IsAllowed(ip, 100, 100).Result;
+                if (!allowed)
+                {
+                    SendNotAllowedResponse(ip, null);
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-               // Console.WriteLine(e);
             }
         }
 
-        private IAsyncResult BeginRequest(object sender, EventArgs eventArgs, AsyncCallback cb, object extraData)
-        {
-            return ProcessRequest((HttpApplication)sender);
-        }
 
-        async Task ProcessRequest(HttpApplication application)
-        {
-            var ctx = application.Context;
-            var ip = ctx.Request.UserHostAddress;
-            var allowed = await _checker.IsAllowed(ip, 100, 100);
-            if (!allowed)
-            {
-                SendNotAllowedResponse(IPAddress.None, null);
-            }
-        }
-
-        void SendNotAllowedResponse(IPAddress ipAddress, HttpResponse response)
+        void SendNotAllowedResponse(string ipAddress, HttpResponse response)
         {
             response.StatusCode = 403;
             response.SubStatusCode = 6;
@@ -73,7 +63,7 @@ namespace SpamBlock
 <head><title>403.6 IP Address Rejected.</title></head>
 <body><center>
 <h1>403.6 IP Address Rejected.</h1>
-<p>Access from {ipAddress} denied, IP is blacklisted due to bad behaviour.</p>
+<p>Access from {ipAddress} denied, IP is blacklisted due to bad behavior.</p>
 </center></body>
 </html>";
             response.Write(content);
