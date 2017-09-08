@@ -30,17 +30,18 @@ namespace SpamBlock
 
         public void Init(HttpApplication context)
         {
-            context.BeginRequest += Context_BeginRequest;
+            var eh = new EventHandlerTaskAsyncHelper(Handler);
+            context.AddOnBeginRequestAsync(eh.BeginEventHandler,eh.EndEventHandler);
         }
 
-        private void Context_BeginRequest(object sender, EventArgs e)
+        private async Task Handler(object sender, EventArgs eventArgs)
         {
             try
             {
                 var application = (HttpApplication)sender;
                 var ctx = application.Context;
                 var ip = ctx.Request.UserHostAddress;
-                var allowed = _checker.IsAllowed(ip, 100, 100).Result;
+                var allowed = await _checker.IsAllowed(ip, 100, 100);
                 if (!allowed)
                 {
                     SendNotAllowedResponse(ip, null);
