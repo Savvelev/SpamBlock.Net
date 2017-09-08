@@ -10,14 +10,15 @@
     <RepositoryUrl>https://github.com/rohitlodha/SpamBlock.Net.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageProjectUrl>https://github.com/rohitlodha/SpamBlock.Net</PackageProjectUrl>
-    <Version>3.1.0</Version>
+    <Version>3.2.0</Version>
     <PackageTags>Block SPAM http:BL IIS</PackageTags>
-    <AssemblyVersion>3.1.0.0</AssemblyVersion>
-    <FileVersion>3.1.0.0</FileVersion>
+    <AssemblyVersion>3.2.0.0</AssemblyVersion>
+    <FileVersion>3.2.0.0</FileVersion>
     <SignAssembly>true</SignAssembly>
     <DelaySign>false</DelaySign>
     <AssemblyOriginatorKeyFile>SpamBlock.snk</AssemblyOriginatorKeyFile>
     <Copyright>Rohit 2017</Copyright>
+    <PackageReleaseNotes>Added new configurations.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
