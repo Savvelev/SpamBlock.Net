@@ -28,7 +28,7 @@ namespace SpamBlock
 
             return await Check(ip);
         }
-        async Task<CheckResult> Check(IPAddress ipAddress)
+        public async Task<CheckResult> Check(IPAddress ipAddress)
         {
             foreach (var checker in _checkers)
             {
