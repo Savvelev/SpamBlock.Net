@@ -11,20 +11,20 @@ To use this library, you must register with [Project Honey Pot](https://www.proj
 This library has a IIS Module targeting .Net 4.6.1 and a ASP.NET Core middleware targeting .Net Standard 2.0
 
 
-Download the latest [SpamBlock nuget package](https://www.nuget.org/packages/SpamBlock/).
+1. Download the latest [SpamBlock nuget package](https://www.nuget.org/packages/SpamBlock/).
 
-1. Add access key to appSettings in web.config
+2. Add access key to appSettings in web.config
 ```
 <configuration>
   <appSettings>
     <add key="AccessKey" value="YOUR_ACCESS_KEY" />
-	<add key="ThresholdThreatScore" value="50" /> <!-- Allows values with score less than threshold. Optional. Valid values 0 to 255. Default value is 50. -->
-	<add key="MaxAgeInDays" value="10" />   <!-- Allows values with age less than max age. Optional. Valid values 0 to 255. Default value is 10. -->
+    <add key="ThresholdThreatScore" value="50" /> <!-- Allows values with score less than threshold. Optional. Valid values 0 to 255. Default value is 50. -->
+    <add key="MaxAgeInDays" value="10" />   <!-- Allows values with age less than max age. Optional. Valid values 0 to 255. Default value is 10. -->
   </appSettings>
 </configuration>
 ```
 
-2. Add the module in your web.config.
+3. Add the module in your web.config.
 
 ```
 <configuration>
